@@ -195,19 +195,20 @@ def confirmed_Sender(update,context):
             try:
                 context.bot.send_message(chat_id=content_chnl_id,text=f"*{content_name}*",reply_markup=InlineKeyboardMarkup(but),parse_mode=ParseMode.MARKDOWN)
             except:
-                update.message.reply_text("*NOT ADMIN IN CHANNEL*",parse_mode=ParseMode.MARKDOWN)
+                query.message.edit_text("*NOT ADMIN IN CHANNEL*",parse_mode=ParseMode.MARKDOWN)
                 return
         else:
+            print(content_chnl_id)
             try:
                 context.bot.send_photo(chat_id=content_chnl_id,photo=open(content_img,"rb"),caption=f"*{content_name}*",reply_markup=InlineKeyboardMarkup(but),parse_mode=ParseMode.MARKDOWN)
             except:
-                update.message.reply_text("*NOT ADMIN IN CHANNEL*",parse_mode=ParseMode.MARKDOWN)
+                query.message.edit_text("*NOT ADMIN IN CHANNEL*",parse_mode=ParseMode.MARKDOWN)
             os.remove(content_img)
             return          
     else:
         cd.clear()
         os.remove(content_img)
-        update.message.reply_text("*CANCELLED*",parse_mode=ParseMode.MARKDOWN)
+        query.message.edit_text("*CANCELLED*",parse_mode=ParseMode.MARKDOWN)
         return
 
 def main():
