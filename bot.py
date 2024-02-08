@@ -197,12 +197,14 @@ def confirmed_Sender(update,context):
             else:
                 but=[[InlineKeyboardButton(f'{content_but_name}',url=f'{content_but_url}')]]
                 context.bot.send_photo(chat_id=content_chnl_id,photo=open(content_img,"rb"),caption=f"*{content_name}*",reply_markup=InlineKeyboardMarkup(but),parse_mode=ParseMode.MARKDOWN)
+                os.remove(content_img)            
         except:
-                cd.clear()
-                update.message.reply_text("*NOT ADMIN IN CHANNEL*",parse_mode=ParseMode.MARKDOWN)
-                return
+            cd.clear()
+            update.message.reply_text("*NOT ADMIN IN CHANNEL*",parse_mode=ParseMode.MARKDOWN)
+            return
     else:
         cd.clear()
+        os.remove(content_img)
         update.message.reply_text("*CANCELLED*",parse_mode=ParseMode.MARKDOWN)
         return
 
