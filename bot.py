@@ -215,7 +215,8 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("content", title_content))
     CHANGE_MANGA = ConversationHandler(entry_points=[CallbackQueryHandler(titlecreation, pattern= f'titlecre_',run_async=True),
-                                                     CallbackQueryHandler(titlerc, pattern= f'contentrc_',run_async=True)],
+                                                     CallbackQueryHandler(titlerc, pattern= f'contentrc_',run_async=True),
+                                                     CallbackQueryHandler(confirmed_Sender, pattern= f'butmaker_',run_async=True)],
         states={},
         fallbacks=[],
         allow_reentry=True,
