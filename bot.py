@@ -151,7 +151,7 @@ def content_reciever(update,context):
             cd[message_id]['content']=content_name
             cd[message_id]['content_pic']=content_img
             cd[message_id]['content_but_nam']=content_name
-            cd[message_id]['content_but_url']=content_img
+            cd[message_id]["content_but_url"]=content_but_url
             cd[message_id]['content_id']=channel_id
             return
 
@@ -190,7 +190,6 @@ def confirmed_Sender(update,context):
     content_but_url=cd[message_id]["content_but_url"]
     content_chnl_id=cd[message_id]["content_id"]
     if query.data.split("_")[-1]=="yes":
-        print(content_but_url)
         but=[[InlineKeyboardButton(f'{content_but_name}',url=f'{content_but_url}')]]
         if content_img == None:
             try:
@@ -199,8 +198,6 @@ def confirmed_Sender(update,context):
                 query.message.edit_text("*NOT ADMIN IN CHANNEL*",parse_mode=ParseMode.MARKDOWN)
                 return
         else:
-            print(content_chnl_id)
-            context.bot.send_photo(chat_id=content_chnl_id,photo=open(content_img,"rb"),caption=f"*{content_name}*",parse_mode=ParseMode.MARKDOWN)
             try:
                 context.bot.send_photo(chat_id=content_chnl_id,photo=open(content_img,"rb"),caption=f"*{content_name}*",reply_markup=InlineKeyboardMarkup(but),parse_mode=ParseMode.MARKDOWN)
             except:
