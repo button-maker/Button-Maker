@@ -150,7 +150,7 @@ def content_reciever(update,context):
             cd[message_id] = {}
             cd[message_id]['content']=content_name
             cd[message_id]['content_pic']=content_img
-            cd[message_id]['content_but_nam']=content_name
+            cd[message_id]['content_but_nam']=content_but_name
             cd[message_id]["content_but_url"]=content_but_url
             cd[message_id]['content_id']=channel_id
             return
