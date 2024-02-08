@@ -199,7 +199,7 @@ def confirmed_Sender(update,context):
                 return
         else:
             print(content_chnl_id)
-            context.bot.send_message(chat_id=content_chnl_id,text="working")
+            context.bot.send_photo(chat_id=content_chnl_id,photo=open(content_img,"rb"),caption="working")
             try:
                 context.bot.send_photo(chat_id=content_chnl_id,photo=open(content_img,"rb"),caption=f"*{content_name}*",reply_markup=InlineKeyboardMarkup(but),parse_mode=ParseMode.MARKDOWN)
             except:
