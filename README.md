@@ -1,1 +1,8 @@
-<b> This Code may help you with koyeb Deployment 
+<b> THIS IS THE MAIN CODE OF BUTTON MAKER WITH CHANNEL UPLOADER BOT
+
+<b> THIS CODE CURRENTLY MADE TO BE ONLY DEPLOYABLE IN KOYEB
+<b> IN FUTURE THIS BOT WILL GET MORE UPDATES
+
+
+<i> REGARDS [SHADOW](https://t.me/fate_unreal)
+<i> BOT [BUTTON MAKER](https://t.me/ButtonMaker_Sobot)
