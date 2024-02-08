@@ -8,7 +8,7 @@ BOT_TOKEN="6748612886:AAHsJnpelNURNHy4hJXwPPImHUOmp0mxQP0"
 
 def start(update, context):
     keyboard=[[InlineKeyboardButton(f'SUPPORT',url=f'https://t.me/ALLSOBOTS'),InlineKeyboardButton(f'REPO',url=f'https://github.com/button-maker/Button-Maker')]]
-    update.message.reply_text("*WELCOME TO Button Maker BOT\n\nThis bot helps you to make button and send it to your channel by using the command /content*",parse_mode=ParseMode.MARKDOWN)
+    update.message.reply_text("*WELCOME TO Button Maker BOT\n\nThis bot helps you to make button and send it to your channel by using the command /content*",reply_markup=InlineKeyboardMarkup(keyboard),parse_mode=ParseMode.MARKDOWN)
     return
 
 def title_content(update,context):
