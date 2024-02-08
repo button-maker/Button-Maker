@@ -190,18 +190,20 @@ def confirmed_Sender(update,context):
     content_but_url=cd[message_id]["content_but_url"]
     content_chnl_id=cd[message_id]["content_id"]
     if query.data.split("_")[-1]=="yes":
-        try:
-            if content_img == None:
-                but=[[InlineKeyboardButton(f'{content_but_name}',url=f'{content_but_url}')]]
+        but=[[InlineKeyboardButton(f'{content_but_name}',url=f'{content_but_url}')]]
+        if content_img == None:
+            try:
                 context.bot.send_message(chat_id=content_chnl_id,text=f"*{content_name}*",reply_markup=InlineKeyboardMarkup(but),parse_mode=ParseMode.MARKDOWN)
-            else:
-                but=[[InlineKeyboardButton(f'{content_but_name}',url=f'{content_but_url}')]]
+            except:
+                update.message.reply_text("*NOT ADMIN IN CHANNEL*",parse_mode=ParseMode.MARKDOWN)
+                return
+        else:
+            try:
                 context.bot.send_photo(chat_id=content_chnl_id,photo=open(content_img,"rb"),caption=f"*{content_name}*",reply_markup=InlineKeyboardMarkup(but),parse_mode=ParseMode.MARKDOWN)
-                os.remove(content_img)            
-        except:
-            cd.clear()
-            update.message.reply_text("*NOT ADMIN IN CHANNEL*",parse_mode=ParseMode.MARKDOWN)
-            return
+            except:
+                update.message.reply_text("*NOT ADMIN IN CHANNEL*",parse_mode=ParseMode.MARKDOWN)
+            os.remove(content_img)
+            return          
     else:
         cd.clear()
         os.remove(content_img)
